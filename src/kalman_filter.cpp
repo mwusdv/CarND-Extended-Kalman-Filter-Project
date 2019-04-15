@@ -61,10 +61,10 @@ void KalmanFilter::radarUpdateEKF(const VectorXd &z, const MatrixXd& Hj) {
   VectorXd y = z - z_pred;
 
   float two_pi = M_PI*2;
-  while (y(1) > two_pi){
+  while (y(1) > M_PI){
     y(1) -= two_pi;
   }
-  while (y(1) < -two_pi) {
+  while (y(1) < -M_PI) {
     y(1) += two_pi;
   }
 
